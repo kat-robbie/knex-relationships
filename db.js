@@ -1,10 +1,11 @@
 var environment = process.env.NODE_ENV || 'development'
-var config = require('./knexfile')[environment]
-var connection = require('knex')(config)
+var development = require('./knexfile.js')[environment]
+var knex = require('knex')(development)
 
 module.exports = {
   getUser: getUser,
-  getUsers: getUsers
+  getUsers: getUsers,
+  getInterests: getInterests
 }
 
 function getUsers (testDb) {
@@ -16,4 +17,15 @@ function getUsers (testDb) {
 function getUser (id, testDb) {
   var db = testDb || connection
   return db('users').where('id', id)
+}
+
+function getInterests(receivedId){
+  knex('users')
+    .join('profile', 'users.id', '=', 'profile.users_id')
+    .select('users.name', 'users.email', 'profile.interests', 'profile.location', 'profile.phone_number')
+
+    return db('users').where(receivedId:users_id)
+    // .then(console.log)
+
+    //return single
 }
