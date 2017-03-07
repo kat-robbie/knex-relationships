@@ -6,7 +6,7 @@
   <body>
     <ul>
     {{#each users}}
-      <li>{{name}} ({{email}})</li>
+      <a href="/profile/{{id}}"><li>{{name}} ({{email}})</li></a>
     {{/each}}
     </ul>
   </body>

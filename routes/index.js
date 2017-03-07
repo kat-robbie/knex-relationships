@@ -3,7 +3,8 @@ var express = require('express')
 var db = require('../db')
 
 module.exports = {
-  get: get
+  get: get,
+  showProfile: showProfile
 }
 
 function get (req, res) {
@@ -14,4 +15,9 @@ function get (req, res) {
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
+}
+
+function showProfile (req, res) {
+  console.log(req);
+
 }

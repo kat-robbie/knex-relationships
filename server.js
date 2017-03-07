@@ -4,7 +4,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var hbs = require('express-handlebars')
 
-var index = require('./routes/index')
+var index = require('./routes/index.js')
 
 var server = express()
 
@@ -20,4 +20,4 @@ server.use(bodyParser.urlencoded({ extended: true }))
 // Routes
 
 server.get('/', index.get)
-
+server.get('/profile/:id', index.showProfile)
