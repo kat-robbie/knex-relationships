@@ -4,8 +4,10 @@
     <title>Profile Page</title>
   </head>
   <body>
-    <h1>stuff</h1>
+    <h1>All the things</h1>
+    {{#each returnedUser}}
       <p>{{name}} {{email}}</p>
       <p>{{interests}} {{location}} {{phone_number}}</p>
+    {{/each}}
   </body>
 </html>
