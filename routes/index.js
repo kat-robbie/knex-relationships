@@ -3,7 +3,9 @@ var db = require('../db')
 
 module.exports = {
   get: get,
-  showProfile: showProfile
+  showProfile: showProfile,
+  showForm: showForm,
+  createUser: createUser
 }
 
 function get (req, res) {
@@ -25,3 +27,11 @@ function showProfile (req, res) {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
   }
+
+function showForm (req, res) {
+  res.render('form.hbs')
+}
+
+function createUser (req, res) {
+  db.insertUser(req)
+}

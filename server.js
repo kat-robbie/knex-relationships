@@ -21,3 +21,6 @@ server.use(bodyParser.urlencoded({ extended: true }))
 
 server.get('/', index.get)
 server.get('/profile/:id', index.showProfile)
+server.get('/form', index.showForm)
+
+server.post('/form', index.createUser)
