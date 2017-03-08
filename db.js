@@ -20,12 +20,10 @@ function getUser (id, testDb) {
 }
 
 function getInterests(receivedId){
-  knex('users')
+  var id = receivedId;
+  return knex('users')
     .join('profile', 'users.id', '=', 'profile.users_id')
-    .select('users.name', 'users.email', 'profile.interests', 'profile.location', 'profile.phone_number')
+    .select('users.id', 'users.name', 'users.email', 'profile.interests', 'profile.location', 'profile.phone_number')
+    .where('users.id',id)
 
-    return db('users').where(receivedId:users_id)
-    // .then(console.log)
-
-    //return single
 }

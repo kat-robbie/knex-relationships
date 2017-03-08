@@ -19,15 +19,11 @@ function get (req, res) {
 function showProfile (req, res) {
   db.getInterests(req.params.id)
     .then(function (returnedUser) {
-    res.render('profile', { user: returnedUser })
-  })
-  .catch(function (err) {
-    res.status(500).send('DATABASE ERROR: ' + err.message)
-  })
+      console.log(returnedUser);
+      res.render('profile.hbs', { returnedUser: returnedUser })
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
 
   }
-  //.then(render the thing)
-
-
-
-  // console.log(req.params.id);
